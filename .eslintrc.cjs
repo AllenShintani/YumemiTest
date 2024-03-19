@@ -1,18 +1,37 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:react-hooks/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  parserOptions: {
+    sourceType: 'module',
+  },
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-dupe-args': ['error'],
+    'no-dupe-keys': ['error'],
+    'no-unreachable': ['error'],
   },
 }
